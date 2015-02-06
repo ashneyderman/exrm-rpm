@@ -1,2 +1,2 @@
-%{"conform": {:package, "0.3.0"},
-  "exrm": {:package, "0.7.2"}}
+%{"conform": {:hex, :conform, "0.11.0"},
+  "exrm": {:hex, :exrm, "0.14.17"}}

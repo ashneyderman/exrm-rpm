@@ -24,7 +24,7 @@ defmodule Mix.Tasks.Release.Copy_rpm_templates do
   def run(args) do
     debug "creating copies...."
     config = [ priv_path:  Path.join([__DIR__, "..", "..", "..", "priv"]) |> Path.expand,
-               name:       Mix.project |> Keyword.get(:app) |> atom_to_binary,
+               name:       Mix.project |> Keyword.get(:app) |> Atom.to_string,
              ]
     config
     |> Keyword.merge(args |> parse_args)
@@ -42,11 +42,11 @@ defmodule Mix.Tasks.Release.Copy_rpm_templates do
 
     File.mkdir_p!(templ_dir)
 
-    @_TEMPLATE_FILES 
-    |> Enum.each(fn(filename) -> 
+    @_TEMPLATE_FILES
+    |> Enum.each(fn(filename) ->
       path   = Path.join([priv, "rel", "files", filename])
       target = Path.join([cwd, @_RPM_TEMPLATE_DIR, filename])
-      if File.exists?(target) and !overwrite? do 
+      if File.exists?(target) and !overwrite? do
         info "Template file #{path} exists. Please use --overwrite overwrite the existing file."
       else
         File.cp!(path, target)
