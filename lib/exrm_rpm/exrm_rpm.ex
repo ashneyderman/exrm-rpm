@@ -40,6 +40,8 @@ defmodule ReleaseManager.Plugin.Rpm do
   end
 
   def after_release(_), do: nil
+  
+  def after_package(_), do: nil
 
   def after_cleanup(_args) do
     build_dir = Path.join([File.cwd!, "_build", "rpm"])
