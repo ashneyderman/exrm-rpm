@@ -23,7 +23,7 @@ defmodule ExrmRpm.Mixfile do
   end
 
   defp deps do
-    [{:exrm, "~> 0.14.17"}]
+    [{:exrm, "~> 0.18.5"}]
   end
 
   defp package do
